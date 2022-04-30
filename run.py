@@ -1,8 +1,16 @@
 # 创建应用实例
 import sys
+from gevent import pywsgi
 
 from wxcloudrun import app
 # 启动Flask Web服务
-if __name__ == '__main__':
-    app.run(host=sys.argv[1], port=sys.argv[2])  # 线上
-    # app.run(host='127.0.0.1', port=5000)  # 开发
+
+# 开发
+# if __name__ == '__main__':
+#     # app.run(host=sys.argv[1], port=sys.argv[2])  #
+#     app.run(host='127.0.0.1', port=5000)
+
+# 线上
+server = pywsgi.WSGIServer((sys.argv[1], sys.argv[2]), app)
+# server = pywsgi.WSGIServer(('127.0.0.1', 5000), app)
+server.serve_forever()
