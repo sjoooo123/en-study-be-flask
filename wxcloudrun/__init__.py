@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_cors import CORS
+# from flask_cors import CORS # 开发
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
 import config
@@ -9,7 +9,7 @@ pymysql.install_as_MySQLdb()
 
 # 初始化web应用
 app = Flask(__name__, instance_relative_config=True)
-CORS(app)
+# CORS(app) # 开发
 
 app.config['DEBUG'] = config.DEBUG
 
