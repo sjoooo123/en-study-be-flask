@@ -5,12 +5,10 @@ from gevent import pywsgi
 from wxcloudrun import app
 # 启动Flask Web服务
 
-# 开发
-# if __name__ == '__main__':
-#     # app.run(host=sys.argv[1], port=sys.argv[2])  #
-#     app.run(host='127.0.0.1', port=5000)
-
-# 线上
-server = pywsgi.WSGIServer((sys.argv[1], sys.argv[2]), app)
-# server = pywsgi.WSGIServer(('127.0.0.1', 5000), app)
-server.serve_forever()
+if __name__ == '__main__':
+    # 开发
+    # app.run(host=sys.argv[1], port=sys.argv[2])
+    # app.run(host='127.0.0.1', port=5000)
+    # 线上
+    server = pywsgi.WSGIServer((sys.argv[1], int(sys.argv[2])), app)
+    server.serve_forever()
