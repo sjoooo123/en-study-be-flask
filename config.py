@@ -1,7 +1,8 @@
 import os
 
 # 是否开启debug模式
-DEBUG = False  # 开发
+DEBUG = True  # 开发
+# DEBUG = False
 
 # 读取数据库环境变量
 # 本地-开发

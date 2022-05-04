@@ -1,6 +1,6 @@
 from flask import request
 from run import app
-from wxcloudrun.wordroot.dao import query_wordrootlist
+from wxcloudrun.wordroot.dao import add_wordroot, delete_wordroot, edit_wordroot, query_wordrootlist
 from wxcloudrun.response import make_succ_response, make_err_response
 
 PREFIX = "/api/wordroot"
@@ -22,7 +22,6 @@ def wordroot_list():
     #     return make_err_response('缺少action参数')
 
     # 接收参数
-    print(params)
     par = {}
     par['all'] = True if (
         'page' not in params or 'size' not in params) else False  # 是否全量查询
@@ -41,3 +40,39 @@ def wordroot_list():
     # 查询
     list = query_wordrootlist(par)
     return make_succ_response(list) if list is not None else make_err_response()
+
+
+@app.route(PREFIX + '/add', methods=['POST'])
+def wordroot_add():
+    """
+    : 新增
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    add_wordroot(params)
+    return make_succ_response({})
+
+
+@app.route(PREFIX + '/edit', methods=['POST'])
+def wordroot_edit():
+    """
+    : 修改
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    edit_wordroot(params)
+    return make_succ_response({})
+
+
+@app.route(PREFIX + '/delete', methods=['POST'])
+def wordroot_delete():
+    """
+    : 删除
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    delete_wordroot(params)
+    return make_succ_response({})

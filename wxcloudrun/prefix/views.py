@@ -1,6 +1,6 @@
 from flask import request
 from run import app
-from wxcloudrun.prefix.dao import query_prefixlist
+from wxcloudrun.prefix.dao import add_prefix, delete_prefix, edit_prefix, query_prefixlist
 from wxcloudrun.response import make_succ_response, make_err_response
 
 PREFIX = "/api/prefix"
@@ -40,3 +40,39 @@ def prefix_list():
     # 查询
     list = query_prefixlist(par)
     return make_succ_response(list) if list is not None else make_err_response()
+
+
+@app.route(PREFIX + '/add', methods=['POST'])
+def prefix_add():
+    """
+    : 新增
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    add_prefix(params)
+    return make_succ_response({})
+
+
+@app.route(PREFIX + '/edit', methods=['POST'])
+def prefix_edit():
+    """
+    : 修改
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    edit_prefix(params)
+    return make_succ_response({})
+
+
+@app.route(PREFIX + '/delete', methods=['POST'])
+def prefix_delete():
+    """
+    : 删除
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    delete_prefix(params)
+    return make_succ_response({})

@@ -10,7 +10,6 @@ def fetch_to_dict(sql, params={}, fecth='all'):
     :param bind:连接的数据，默认取配置的SQLALCHEMY_DATABASE_URL，
     :return:
     '''
-    print(sql)
     resultProxy = db.session.execute(sql, params)
     if fecth == 'one':
         result_tuple = resultProxy.fetchone()
@@ -50,14 +49,12 @@ def fetch_to_dict_pagetion(sql, params={}, page=1, page_size=15):
 
 # 执行单条语句（update,insert）
 def execute(sql, params={}):
-    print('sql', sql)
     db.session.execute(sql, params)
     db.session.commit()
 
 
 # 执行多条语句，失败自动回滚
 def execute_many(sqls):
-    print(sqls)
     if not isinstance(sqls, (list, tuple)):
         raise Exception('type of the parameters must be list or tuple')
     if len(sqls) == 0:

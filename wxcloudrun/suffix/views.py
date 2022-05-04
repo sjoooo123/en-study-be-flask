@@ -1,6 +1,6 @@
 from flask import request
 from run import app
-from wxcloudrun.suffix.dao import query_suffixlist
+from wxcloudrun.suffix.dao import add_suffix, delete_suffix, edit_suffix, query_suffixlist
 from wxcloudrun.response import make_succ_response, make_err_response
 
 PREFIX = "/api/suffix"
@@ -40,3 +40,39 @@ def suffix_list():
     # 查询
     list = query_suffixlist(par)
     return make_succ_response(list) if list is not None else make_err_response()
+
+
+@app.route(PREFIX + '/add', methods=['POST'])
+def suffix_add():
+    """
+    : 新增
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    add_suffix(params)
+    return make_succ_response({})
+
+
+@app.route(PREFIX + '/edit', methods=['POST'])
+def suffix_edit():
+    """
+    : 修改
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    edit_suffix(params)
+    return make_succ_response({})
+
+
+@app.route(PREFIX + '/delete', methods=['POST'])
+def suffix_delete():
+    """
+    : 删除
+    """
+    # 获取请求体参数
+    params = request.get_json()
+
+    delete_suffix(params)
+    return make_succ_response({})

@@ -7,8 +7,7 @@ from wxcloudrun import app
 
 if __name__ == '__main__':
     # 开发
-    # app.run(host=sys.argv[1], port=sys.argv[2])
-    # app.run(host='127.0.0.1', port=5000)
+    app.run(host='127.0.0.1', port=5000)
     # 线上
-    server = pywsgi.WSGIServer((sys.argv[1], int(sys.argv[2])), app)
-    server.serve_forever()
+    # server = pywsgi.WSGIServer((sys.argv[1], int(sys.argv[2])), app)
+    # server.serve_forever()
