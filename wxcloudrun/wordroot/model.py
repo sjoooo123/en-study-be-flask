@@ -13,6 +13,7 @@ class Wordroot(db.Model):
     wordroot = db.Column(db.String(255), nullable=False)
     translation = db.Column(db.String(9999))
     mean = db.Column(db.String(9999))
+    example = db.Column(db.String(9999))
     category = db.Column(db.Integer)
     note = db.Column(db.String(9999))
     created_at = db.Column('createdAt', db.TIMESTAMP,

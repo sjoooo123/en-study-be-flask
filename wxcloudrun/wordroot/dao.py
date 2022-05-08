@@ -55,9 +55,12 @@ def query_wordrootlist(params):
             if len(keyStr):
                 whereStr = 'where '
 
+        if len(andStr):
+            keyStr = '( ' + keyStr + ') '
         # 组合sql
         sqlStr = sqlStr + whereStr + filterStr + andStr + keyStr + 'ORDER BY wordroot '
 
+        print(sqlStr)
         return fetch_to_dict(sqlStr, {}) if params['all'] else fetch_to_dict_pagetion(sqlStr, {}, int(params['page']), int(params['size']))
 
     except OperationalError as e:
@@ -72,13 +75,15 @@ def add_wordroot(params):
     """
     try:
         wordroot = params['wordroot']
-        translation = params['translation']
-        mean = params['mean']
-        category = params['category'],
-        note = params['note']
+        translation = params['translation'] if 'translation' in params else ''
+        mean = params['mean'] if 'mean' in params else ''
+        example = params['example'] if 'example' in params else ''
+        category = params['category'] if 'category' in params else [''],
+        note = params['note'] if 'note' in params else ''
 
-        sql = 'INSERT INTO wordroot(wordroot,translation,mean,category,note) VALUES(%s,%s,%s,%s,%s);' % (
-            wordroot, translation, mean, category[0], note)
+        sql = 'INSERT INTO wordroot(wordroot,translation,mean,example,category,note) VALUES("%s","%s","%s","%s","%s","%s");' % (
+            wordroot, translation, mean, example, category[0], note)
+
         execute(sql)
     except OperationalError as e:
         logger.info("add_wordroot errorMsg= {} ".format(e))
@@ -91,14 +96,15 @@ def edit_wordroot(params):
     """
     try:
         wordroot = params['wordroot']
-        translation = params['translation']
-        mean = params['mean']
-        category = params['category']
-        note = params['note']
+        translation = params['translation'] if 'translation' in params else ''
+        mean = params['mean'] if 'mean' in params else ''
+        example = params['example'] if 'example' in params else ''
+        category = params['category'] if 'category' in params else ('',),
+        note = params['note'] if 'note' in params else ''
         id = params['id']
 
-        sql = 'update wordroot set wordroot=%s,translation=%s,mean=%s,category=%s,note=%s where id=%s;' % (
-            wordroot, translation, mean, category, note, id)
+        sql = 'update wordroot set wordroot="%s",translation="%s",mean="%s",example="%s",category="%s",note="%s" where id="%s";' % (
+            wordroot, translation, mean, example, category[0], note, id)
         execute(sql)
     except OperationalError as e:
         logger.info("add_wordroot errorMsg= {} ".format(e))

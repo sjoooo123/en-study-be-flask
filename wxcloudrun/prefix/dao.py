@@ -72,13 +72,13 @@ def add_prefix(params):
     """
     try:
         affix = params['affix']
-        translation = params['translation']
-        example = params['example']
-        category = params['category'],
-        note = params['note']
+        translation = params['translation'] if 'translation' in params else ''
+        example = params['example'] if 'example' in params else ''
+        category = params['category'] if 'category' in params else ''
+        note = params['note'] if 'note' in params else ''
 
-        sql = 'INSERT INTO prefix(affix,translation,example,category,note) VALUES(%s,%s,%s,%s,%s);' % (
-            affix, translation, example, category[0], note)
+        sql = 'INSERT INTO prefix(affix,translation,example,category,note) VALUES("%s","%s","%s","%s","%s");' % (
+            affix, translation, example, category, note)
         execute(sql)
     except OperationalError as e:
         logger.info("prefix errorMsg= {} ".format(e))
@@ -91,13 +91,13 @@ def edit_prefix(params):
     """
     try:
         affix = params['affix']
-        translation = params['translation']
-        example = params['example']
-        category = params['category']
-        note = params['note']
+        translation = params['translation'] if 'translation' in params else ''
+        example = params['example'] if 'example' in params else ''
+        category = params['category'] if 'category' in params else ''
+        note = params['note'] if 'note' in params else ''
         id = params['id']
 
-        sql = 'update prefix set affix=%s,translation=%s,example=%s,category=%s,note=%s where id=%s;' % (
+        sql = 'update prefix set affix="%s",translation="%s",example="%s",category="%s",note="%s" where id="%s";' % (
             affix, translation, example, category, note, id)
         execute(sql)
     except OperationalError as e:
