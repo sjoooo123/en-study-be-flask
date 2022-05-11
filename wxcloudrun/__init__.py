@@ -27,6 +27,7 @@ if True:
     from wxcloudrun.prefix import views
     from wxcloudrun.suffix import views
     from wxcloudrun.wordroot import views
+    from wxcloudrun.common import views
 
 # 加载配置
 app.config.from_object('config')

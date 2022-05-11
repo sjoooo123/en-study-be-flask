@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 08/05/2022 15:28:12
+ Date: 11/05/2022 13:14:26
 */
 
 SET NAMES utf8mb4;
@@ -80,13 +80,13 @@ INSERT INTO `counters` VALUES (1, 13, '2022-04-25 17:24:44', '2022-04-26 16:40:2
 DROP TABLE IF EXISTS `prefix`;
 CREATE TABLE `prefix`  (
   `affix` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '词缀',
-  `translation` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '释义',
-  `example` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '示例',
+  `translation` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '释义',
+  `example` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '示例',
   `category` int(11) NOT NULL COMMENT '分类',
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `note` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '注意事项',
+  `note` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '注意事项',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 401 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 406 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of prefix
@@ -100,42 +100,39 @@ INSERT INTO `prefix` VALUES ('tri', '三', 'triangle三角', 6, 107, NULL);
 INSERT INTO `prefix` VALUES ('hepta', '七', 'heptagon七边形', 6, 108, NULL);
 INSERT INTO `prefix` VALUES ('penta', '五', 'pentagram五角星形', 6, 109, NULL);
 INSERT INTO `prefix` VALUES ('demi', '半', 'demigod半神半人', 6, 321, NULL);
-INSERT INTO `prefix` VALUES ('para', '半', NULL, 6, 111, NULL);
+INSERT INTO `prefix` VALUES ('para', '半；类似；辅助', '1.parapolitical(para 半；类似；辅助 + political 政治的 → 半政治的)\n2.parallel(para 半；类似；辅助 + llel 线 → 平行的)\n3.paramilitary(para 半；类似；辅助 + military 军事的 → 准军事的)', 3, 111, 'None');
 INSERT INTO `prefix` VALUES ('non', '不，无，非', 'nonmetal非金属', 1, 112, NULL);
 INSERT INTO `prefix` VALUES ('neo', '新的，最近的，最新的', 'neoimpressionism新印象派', 3, 113, NULL);
 INSERT INTO `prefix` VALUES ('photo', '光', NULL, 7, 114, NULL);
-INSERT INTO `prefix` VALUES ('ab,abs', '相反，变坏，离去', 'abuse滥用', 1, 116, 'None');
-INSERT INTO `prefix` VALUES ('pre', '先，前', 'prefix前缀', 5, 117, NULL);
+INSERT INTO `prefix` VALUES ('ab,abs', '相反', '1.abuse(ab 相反 + use 用 → 不〔正常〕使用 → 滥用)\n2.absent(abs 相反 + ent 存在 → 不在 → 缺席的)', 1, 116, 'None');
+INSERT INTO `prefix` VALUES ('pre', '前；预先', '1.preamble(pre 前；预先 + amble 行走 →〔话语〕在先 → 前言，序言)', 5, 117, 'None');
 INSERT INTO `prefix` VALUES ('re', '回，向后', 'reclaim收回', 5, 118, NULL);
 INSERT INTO `prefix` VALUES ('mono', '独，单一，一个', 'monoxide一氧化物', 6, 121, NULL);
 INSERT INTO `prefix` VALUES ('in', '不，无，非', 'inhuman不人道的', 1, 122, NULL);
 INSERT INTO `prefix` VALUES ('macro', '大，宏，长', 'macroclimate大气候', 3, 123, NULL);
 INSERT INTO `prefix` VALUES ('pl', '双', NULL, 6, 124, NULL);
 INSERT INTO `prefix` VALUES ('un', '不，无，非，相反动作，取消', 'unfortunate不幸的', 1, 125, NULL);
-INSERT INTO `prefix` VALUES ('a', '无，不，非', 'azonic非地带性的', 1, 126, NULL);
+INSERT INTO `prefix` VALUES ('a', '无，不，非', '1.amoral(a 不，无，非 + moral 道德的 → 非道德性的)', 1, 126, 'None');
 INSERT INTO `prefix` VALUES ('exo', '外，外部', 'exotic外来的', 5, 128, NULL);
 INSERT INTO `prefix` VALUES ('inter', '中间，在…之间，在内，向内，在...之际', 'interoceanic大洋之间的', 5, 130, NULL);
 INSERT INTO `prefix` VALUES ('multi', '多', 'multimedia多媒体的', 6, 131, '用于a前省i');
 INSERT INTO `prefix` VALUES ('co', '共同', 'cooperation合作', 3, 132, NULL);
 INSERT INTO `prefix` VALUES ('ambi,amphi', '双，二', 'amphibian水陆两用车', 6, 133, NULL);
 INSERT INTO `prefix` VALUES ('ob', '逆，反，非，倒', 'object反对', 1, 134, NULL);
-INSERT INTO `prefix` VALUES ('omni', '全，总，公，都', 'omnibus公共汽车', 3, 135, NULL);
 INSERT INTO `prefix` VALUES ('dys', '困难，不良，恶', 'dyspepsia消化不良', 2, 136, NULL);
-INSERT INTO `prefix` VALUES ('at', '含at,to意思，加强意义', 'attract吸引', 9, 137, '用在t前');
 INSERT INTO `prefix` VALUES ('cor', '共同，互相', 'correspond共鸣', 3, 314, '用在r前');
 INSERT INTO `prefix` VALUES ('con', '使...', 'confirm使坚定', 9, 139, NULL);
 INSERT INTO `prefix` VALUES ('re', '再，重复，重新', 'reconsider重新考虑', 3, 373, NULL);
 INSERT INTO `prefix` VALUES ('ir', '不，无', 'irregular不规则的', 1, 141, '用在r前');
-INSERT INTO `prefix` VALUES ('per', '贯穿，通，透', 'persist坚持', 5, 142, NULL);
+INSERT INTO `prefix` VALUES ('per', '贯穿，自始至终', '1.perennial(per 贯穿，自始至终 + enn 年 + ial …的 → 全年的)', 5, 142, 'None');
 INSERT INTO `prefix` VALUES ('sup', '使成...', 'support支持', 9, 143, '用在p前');
 INSERT INTO `prefix` VALUES ('mis', '误，错，恶', 'misspell拼错', 2, 144, NULL);
 INSERT INTO `prefix` VALUES ('philo', '喜爱', NULL, 8, 145, NULL);
-INSERT INTO `prefix` VALUES ('pan,panto', '全部；泛', 'panthemism泛神论', 3, 146, NULL);
+INSERT INTO `prefix` VALUES ('pan,panto', '全部；泛', '1.pandemic(pan 广泛的，全 + dem 人民 + ic …的 → 在人民中〔流行〕→ 广泛流行的)\n2.pantoscope(panto 广泛的，全 + scop 观察，镜 + e → 镜头的范围很广 → 广角照相机)', 3, 146, 'None');
 INSERT INTO `prefix` VALUES ('sub', '次，稍，略；下，替换；下级', NULL, 3, 147, NULL);
-INSERT INTO `prefix` VALUES ('circum', '周围，环境', 'circumpolar极地周围的', 5, 148, NULL);
+INSERT INTO `prefix` VALUES ('circum', '环绕，周围', '1.circumference(circum 环绕，周围 + fer 带来 + ence 表状态 → 来环绕一圈 → 周长)', 5, 148, 'None');
 INSERT INTO `prefix` VALUES ('levo', '左', NULL, 5, 149, NULL);
 INSERT INTO `prefix` VALUES ('sur', '上，外，超', 'surcharge超载', 3, 150, NULL);
-INSERT INTO `prefix` VALUES ('ac', '含at,to意思，加强意义', 'accustom使习惯', 9, 151, '用在c,k,q前');
 INSERT INTO `prefix` VALUES ('im', '内，入', 'imprison监禁', 5, 152, '用在b,m,p前');
 INSERT INTO `prefix` VALUES ('caco', '不良，坏 ', 'cacophony刺耳的声音', 2, 399, '');
 INSERT INTO `prefix` VALUES ('endo', '内，中间', 'endoparasite体内寄生虫', 5, 155, NULL);
@@ -156,16 +153,15 @@ INSERT INTO `prefix` VALUES ('octa', '八', 'octagon八角形', 6, 171, NULL);
 INSERT INTO `prefix` VALUES ('quadr', '四', 'quadruped四足动物', 6, 172, NULL);
 INSERT INTO `prefix` VALUES ('quinque', '五', 'quinquesection五等分', 6, 173, '用于a前省e');
 INSERT INTO `prefix` VALUES ('sept', '七', 'septuple七倍的', 6, 175, NULL);
-INSERT INTO `prefix` VALUES ('over', '过度，太甚', 'overpraise过奖', 3, 176, NULL);
-INSERT INTO `prefix` VALUES ('hypo', '下，低，次，少', 'hypotension低血压', 3, 177, NULL);
+INSERT INTO `prefix` VALUES ('over', '过度，过分', '1.overpraise(over 过度，过分 + praise 赞扬 → 过度称赞)', 3, 176, 'None');
+INSERT INTO `prefix` VALUES ('hypo', '下, 低；次等', '1.hypomnesia(hypo 下，低；次等 + mnes 记忆 + ia 某种病 → 记忆变弱 → 记忆力减退)', 3, 177, 'None');
 INSERT INTO `prefix` VALUES ('mal', '不好的，恶意', 'malfunction故障', 2, 178, NULL);
 INSERT INTO `prefix` VALUES ('di', '二，双', 'dioxide二氧化物', 6, 179, NULL);
 INSERT INTO `prefix` VALUES ('oligo', '少，小，寡，微', NULL, 3, 181, NULL);
-INSERT INTO `prefix` VALUES ('peri', '周围，外层，靠近', 'pericarp果皮', 5, 182, '用于a前省i');
+INSERT INTO `prefix` VALUES ('peri', '周围，外层，靠近', '1.perimeter(peri 周围；靠近 + meter 测量 → 测量一圈 → 周边)', 5, 182, '用于a前省i');
 INSERT INTO `prefix` VALUES ('hemi', '半', 'hemisphere半球', 6, 183, NULL);
-INSERT INTO `prefix` VALUES ('as', '含at,to意思，加强意义', 'assort分类', 9, 184, '用在s前');
 INSERT INTO `prefix` VALUES ('leuco', '白', NULL, 7, 185, NULL);
-INSERT INTO `prefix` VALUES ('hetero', '异', 'heterosexaul异性的', 3, 186, NULL);
+INSERT INTO `prefix` VALUES ('hetero', '其他的；不同', 'heterosexual(hetero 其他的；不同 + sexual 性别的 → 异性的)', 3, 186, 'None');
 INSERT INTO `prefix` VALUES ('pleni', '全', NULL, 3, 187, NULL);
 INSERT INTO `prefix` VALUES ('duo', '两，二', NULL, 6, 188, NULL);
 INSERT INTO `prefix` VALUES ('sur', '使成...', 'surround包围', 9, 189, '用在r前');
@@ -180,16 +176,14 @@ INSERT INTO `prefix` VALUES ('col', '共同', 'collocate并置，并列', 3, 197
 INSERT INTO `prefix` VALUES ('ennea', '九', NULL, 6, 198, NULL);
 INSERT INTO `prefix` VALUES ('deca', '十', 'decameter十米', 6, 200, NULL);
 INSERT INTO `prefix` VALUES ('hexa', '六', 'hexangular六角的', 6, 201, NULL);
-INSERT INTO `prefix` VALUES ('post', '后', 'postscript后记', 5, 202, NULL);
+INSERT INTO `prefix` VALUES ('post', '后，后面', '1.posterity(post 后，后面 + er + ity 具备某种性质，状况 → 后面的人 → 后代)', 5, 202, 'None');
 INSERT INTO `prefix` VALUES ('meso', '中间', NULL, 5, 203, NULL);
 INSERT INTO `prefix` VALUES ('ecto', '外', NULL, 5, 204, NULL);
-INSERT INTO `prefix` VALUES ('epi', '在旁边，在后面，在外面，在中间，在远处，在上面', 'epidermis表皮', 5, 205, NULL);
-INSERT INTO `prefix` VALUES ('homo', '相同', NULL, 3, 206, NULL);
-INSERT INTO `prefix` VALUES ('ag', '含at,to意思，加强意义', 'aggrandize增大', 9, 298, '用在g前');
+INSERT INTO `prefix` VALUES ('epi', '在…上、周围或中间；在…后面', '1.epilogue(epi 在…上、周围或中间；在…后面 + log 说话 + ue → 在后面说的话 → 后记)', 5, 205, 'None');
+INSERT INTO `prefix` VALUES ('homo', '相同的, 同类的；相似的', '1.homosexual(homo 相同的，同类的；相似的 + sexual 性别的 → 喜欢同性的 → 同性恋的)', 3, 206, 'None');
 INSERT INTO `prefix` VALUES ('an', '无，不', 'anarchistic无政府的', 1, 300, NULL);
-INSERT INTO `prefix` VALUES ('af', '含at,to意思，加强意义', 'afforest造林，绿化', 9, 297, '用在f前');
 INSERT INTO `prefix` VALUES ('al', '含at,to意思，加强意义', 'allocate分配', 9, 299, '用在l前');
-INSERT INTO `prefix` VALUES ('ad', '含at,to意思，加强意义', 'adventrue冒险', 9, 296, '用在d,h,j,m,v前');
+INSERT INTO `prefix` VALUES ('ad', '做…或加强，用在d,h,j,m,v前', '1.addict(ad 做…或加强 + dict〔= dic说〕→ 一再说起 → 上瘾)\n2.adhere(ad 做…或加强 + her 粘 + e → 坚持；粘附)\n3.adjust(ad 做…或加强 + just 正确 → 使正确 → 调整)\n4.admire(ad 做…或加强 + mir 惊 + e → 很惊喜 → 羡慕)\n5.adventure(ad 做…或加强 + venture 冒险 → 冒险)', 9, 296, '');
 INSERT INTO `prefix` VALUES ('twi', '二，两', 'twin双胞胎', 6, 392, NULL);
 INSERT INTO `prefix` VALUES ('e', '加强或引申意义', 'evaluate评价', 9, 325, NULL);
 INSERT INTO `prefix` VALUES ('trans', '转移，变换', 'transport运输', 3, 391, NULL);
@@ -205,7 +199,7 @@ INSERT INTO `prefix` VALUES ('arch', '主要的，首位的', 'archenemy头号�
 INSERT INTO `prefix` VALUES ('Sino', '中国，中国人', 'Sino-Tibetan汉藏语系', 7, 241, NULL);
 INSERT INTO `prefix` VALUES ('paleo', '古，旧', 'paleozoology古动物学', 5, 242, NULL);
 INSERT INTO `prefix` VALUES ('step', '后，继', 'stepfather继父', 5, 243, NULL);
-INSERT INTO `prefix` VALUES ('pen', '几乎，相近，相似', 'penultimate倒数第二个', 3, 244, NULL);
+INSERT INTO `prefix` VALUES ('pen', '几乎，近似', '1.peninsula(pen 近似，几乎 + insula 岛 → 近似岛 → 半岛)', 3, 244, 'None');
 INSERT INTO `prefix` VALUES ('iso', '等，同', 'isotope同位素', 3, 245, NULL);
 INSERT INTO `prefix` VALUES ('vice', '代替，副', 'vice-manager副经理', 3, 246, NULL);
 INSERT INTO `prefix` VALUES ('kilo', '千;千分之一', 'kilowatt千瓦', 6, 247, NULL);
@@ -233,25 +227,23 @@ INSERT INTO `prefix` VALUES ('cata', '下，向下', NULL, 5, 271, NULL);
 INSERT INTO `prefix` VALUES ('for', '加强意义', 'forbear忍受', 9, 273, NULL);
 INSERT INTO `prefix` VALUES ('fore', '前，上级，先，预先', 'foreground前景', 5, 274, NULL);
 INSERT INTO `prefix` VALUES ('hydro', '水', NULL, 7, 275, NULL);
-INSERT INTO `prefix` VALUES ('hyper', '超过，过多，太甚', 'hyperacid胃酸过多的', 3, 276, NULL);
+INSERT INTO `prefix` VALUES ('hyper', '超过，过多', '1.hypersensitive(hyper 超过，过多 + sensitive 敏感的 → 过敏的)', 3, 276, 'None');
 INSERT INTO `prefix` VALUES ('intra', '在内，内部', 'intrastate州内的', 5, 277, NULL);
 INSERT INTO `prefix` VALUES ('meta', '变化', 'metagenesis时代交替', 3, 278, NULL);
 INSERT INTO `prefix` VALUES ('with', '相反，向后', 'withdraw撤回，撤退', 1, 279, NULL);
 INSERT INTO `prefix` VALUES ('tele', '电', 'telecommunication电信', 7, 280, NULL);
 INSERT INTO `prefix` VALUES ('pseudo', '假', 'pseudonym假名', 1, 284, NULL);
-INSERT INTO `prefix` VALUES ('out', '超过，胜过', 'outrun跑过', 3, 285, NULL);
+INSERT INTO `prefix` VALUES ('out', '超过，胜过', '1.outnumber(out 超过，胜过 + number 数量 → 在数量上超过)', 3, 285, 'None');
 INSERT INTO `prefix` VALUES ('ec', '离开', NULL, 5, 286, NULL);
 INSERT INTO `prefix` VALUES ('sym', '共同，相同', 'symmetry对称', 3, 287, '用在b,m,p前');
 INSERT INTO `prefix` VALUES ('lav,luv,lu,lau', '冲洗', NULL, 7, 288, NULL);
 INSERT INTO `prefix` VALUES ('ex', '前任的，以前的', 'ex-mayor前任市长', 5, 289, NULL);
 INSERT INTO `prefix` VALUES ('in', '内，入', 'inbreak入侵', 5, 290, NULL);
-INSERT INTO `prefix` VALUES ('pro', '向前，在前', 'prologue序言', 5, 291, NULL);
+INSERT INTO `prefix` VALUES ('pro', '向前，在前', '1.proclaim(pro 向前，在前 + claim 叫，喊 → 在前面大声讲话 → 宣布)', 5, 291, 'None');
 INSERT INTO `prefix` VALUES ('se', '分开，离开', 'secede退出', 5, 292, NULL);
-INSERT INTO `prefix` VALUES ('a', '含in,at等意义', 'asleep在熟睡中', 5, 294, NULL);
-INSERT INTO `prefix` VALUES ('a', '加强意义', 'aloud高声地', 9, 295, NULL);
-INSERT INTO `prefix` VALUES ('ap', '加强或引申意义', 'appraise评价', 9, 302, '用在p前');
+INSERT INTO `prefix` VALUES ('a', '含in,at等意义', '1.asleep(a 在…，…的 + sleep 睡觉 → 睡着的)', 5, 294, 'None');
+INSERT INTO `prefix` VALUES ('a', '加强意义', '1.aloud(a 表加强 + loud 高声地 → 高声地)', 9, 295, 'None');
 INSERT INTO `prefix` VALUES ('an', '含at,to意思，加强意义', 'annotate注释', 9, 301, '用在n前');
-INSERT INTO `prefix` VALUES ('ar', '含at,to意思，加强意义', 'arrange安排', 9, 303, '用在r前');
 INSERT INTO `prefix` VALUES ('back', '反的，向后的', 'backstroke仰泳', 1, 304, NULL);
 INSERT INTO `prefix` VALUES ('be', '在', 'below在...下面', 5, 306, NULL);
 INSERT INTO `prefix` VALUES ('be', '加强及引申意义', 'befall降临，发生', 9, 307, NULL);
@@ -299,21 +291,17 @@ INSERT INTO `prefix` VALUES ('milli', '千，千分之一，毫', 'millipede千�
 INSERT INTO `prefix` VALUES ('mini', '小', 'minipark小型公园', 3, 354, NULL);
 INSERT INTO `prefix` VALUES ('no', '无', 'nothing没事', 1, 355, NULL);
 INSERT INTO `prefix` VALUES ('of', '逆，反，非，倒', 'offend触犯', 1, 356, '用在f前');
-INSERT INTO `prefix` VALUES ('out', '过度，太甚', 'outdream做梦太多', 3, 357, NULL);
-INSERT INTO `prefix` VALUES ('out', '外，出', 'outdoor户外的', 5, 358, NULL);
-INSERT INTO `prefix` VALUES ('out', '除去', 'outcast开除的', 3, 359, NULL);
-INSERT INTO `prefix` VALUES ('over', '在上，在外，从上', 'overbridge天桥', 5, 360, NULL);
-INSERT INTO `prefix` VALUES ('over', '颠倒，反转', 'overthrow推翻', 1, 361, NULL);
-INSERT INTO `prefix` VALUES ('para', '类似，准', 'parallel平行的', 3, 362, NULL);
-INSERT INTO `prefix` VALUES ('para', '辅助，副', 'paramilitary辅助军事的', 3, 363, NULL);
-INSERT INTO `prefix` VALUES ('para', '旁，靠近，外', 'parasite寄生虫', 5, 364, NULL);
-INSERT INTO `prefix` VALUES ('para', '错误，伪', 'paradox似是而非', 2, 365, NULL);
-INSERT INTO `prefix` VALUES ('para', '防，避开，保护', 'parasol遮阳伞', 7, 366, NULL);
-INSERT INTO `prefix` VALUES ('para', '超过', 'paramount至上的', 3, 367, NULL);
-INSERT INTO `prefix` VALUES ('per', '加强意义', 'perturb扰乱', 9, 368, NULL);
+INSERT INTO `prefix` VALUES ('out', '太，过分', '1.outsit(out 太，过分 + sit 坐 → 坐得过久)', 3, 357, 'None');
+INSERT INTO `prefix` VALUES ('out', '外，出', '1.outdoor(out 出，外 + door 门，户 → 户外的)', 5, 358, 'None');
+INSERT INTO `prefix` VALUES ('over', '在…之上，凌驾', '1.overbridge(over 在…之上，凌驾 + bridge 桥 → 架在上面的桥 → 天桥)', 5, 360, 'None');
+INSERT INTO `prefix` VALUES ('over', '翻转', '1.overthrow(over 翻转 + throw 扔 → 扔翻 → 推翻)', 1, 361, 'None');
+INSERT INTO `prefix` VALUES ('para', '旁边；外', '1.paradigm(para 旁边；外 + digm 显示 → 在旁边显示给〔别人〕看 → 示范)\n2.paralyze(para 旁边；外 + lyz〔 = lys分开〕+ e → 身体〔不听大脑支配〕像与自己分开了一样 → 使瘫痪)', 5, 364, 'None');
+INSERT INTO `prefix` VALUES ('para', '保护 ，引申为“伞”', '1.paradrop(para 伞 + drop 扔下 → 空投)', 7, 366, 'None');
+INSERT INTO `prefix` VALUES ('para', '超过', '1.paranormal(para 旁边；超；外 + normal 正常的 → 超过正常的 → 异常的)', 3, 367, 'None');
+INSERT INTO `prefix` VALUES ('per', '加强意义', '1.pernicious(per 表加强 + nic 毒，死 + ious …的 → 剧毒可死人的 → 致命的)', 9, 368, 'None');
 INSERT INTO `prefix` VALUES ('per', '过，高', 'perchloride高氯化物', 3, 369, NULL);
-INSERT INTO `prefix` VALUES ('pro', '代理，代替', 'procurator代理人', 3, 371, NULL);
-INSERT INTO `prefix` VALUES ('pro', '拥护，亲，赞成', 'pro-british亲英的', 3, 372, NULL);
+INSERT INTO `prefix` VALUES ('pro', '代理，代替', '1.procurator(pro 代理，代替 + cur 关心 + ator 人 → 替你关心的人 → 代理人)', 3, 371, 'None');
+INSERT INTO `prefix` VALUES ('pro', '赞同；亲…，拥护', '1.proslavery(pro 赞同；亲…，拥护 + slavery 奴隶制 → 赞成奴隶制度)', 3, 372, 'None');
 INSERT INTO `prefix` VALUES ('re', '相反，反对', 'revolt造反', 1, 374, NULL);
 INSERT INTO `prefix` VALUES ('sex', '六', 'sexto六开本', 6, 376, NULL);
 INSERT INTO `prefix` VALUES ('some', '某', 'sometime某时', 7, 377, NULL);
@@ -333,6 +321,11 @@ INSERT INTO `prefix` VALUES ('under', '内', 'undershirt贴身内衣', 5, 395, '
 INSERT INTO `prefix` VALUES ('under', '不足，少', 'underestimate估计不足', 3, 396, NULL);
 INSERT INTO `prefix` VALUES ('under', '副，次', 'underking小王', 3, 397, NULL);
 INSERT INTO `prefix` VALUES ('ana', '在旁边，错误，分开', 'analogy类似', 5, 400, '');
+INSERT INTO `prefix` VALUES ('ab,abs', '去掉，离去', '1.abdicate(ab 去掉，离去 + dic 说话 + ate 使… → 离开说话的位置 → 退位)\n2.abscise(abs 去掉，离去 + cis 切 + e → 切掉 → 切除)', 1, 401, '');
+INSERT INTO `prefix` VALUES ('per', '假；坏；否定', '1.perfidy(per 假；坏；否定 + fid 相信 + y 表行为 → 假相信 → 不忠)', 1, 402, '');
+INSERT INTO `prefix` VALUES ('post', '邮政', '1.postbox(post 邮政 + box 箱 → 邮箱)', 7, 403, '');
+INSERT INTO `prefix` VALUES ('geo', '地, 地球', '1.geocentric(geo 地，地球 + centr 中心 + ic …的 → 以地球为中心的)', 7, 404, '');
+INSERT INTO `prefix` VALUES ('ab, ac, af, ag, ap, ar, as, at', '加在同辅音字母的词根前, 表加强', '1.abbreviate(ab 表加强 + brev 短 + iate 使… → 使一再变短 → 缩写)\n2.accelerate(ac 表加强 + celer 速度 + ate 使… → 加快速度 → 加速)\n3.affiliation(af 表加强 + fili 子女 + ation 表结果 → 成为子女 → 入会)\n4.aggrandize(ag 表加强 + grand 大 + ize 使… → 一再大 → 扩大)\n5.applause(ap 表加强 + plaus 鼓掌 + e → 鼓掌)\n6.arrest(ar 表加强 + rest 休息 → 强制休息 → 逮捕)\n7.assist(as 表加强 + sist 站 → 站在一起 → 帮助)\n8.attract(at 表加强 + tract 拉 → 不断拉〔眼球〕→ 吸引)', 9, 405, '');
 
 -- ----------------------------
 -- Table structure for suffix
@@ -340,14 +333,14 @@ INSERT INTO `prefix` VALUES ('ana', '在旁边，错误，分开', 'analogy类�
 DROP TABLE IF EXISTS `suffix`;
 CREATE TABLE `suffix`  (
   `affix` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `translation` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `translation` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `category` int(11) NULL DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `example` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `note` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `example` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `note` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 473 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 484 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of suffix
@@ -361,9 +354,8 @@ INSERT INTO `suffix` VALUES ('ess', '表女性，雌性', NULL, 10, 466, 'hostes
 INSERT INTO `suffix` VALUES ('logist', '…学者，研究者，某一学科的专家', 'n.', NULL, 204, NULL, NULL);
 INSERT INTO `suffix` VALUES ('e', '人，物', 'v./n.', NULL, 205, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ment', '行为、状态、性质', 'n.', 10, 206, 'movement运动', NULL);
-INSERT INTO `suffix` VALUES ('or', '人，与er一样，还带有其他拉丁词尾成份，常见的形态有-ator,-itor等，可将它们看作-or 的异体。', 'n.', NULL, 207, NULL, NULL);
+INSERT INTO `suffix` VALUES ('or,ator', '人', 'n.', 10, 207, '1.inventor(invent 发明 + or 人 → 发明家)\n2.moderator(moderate 缓和 + ator 人 → 调解人)', 'None');
 INSERT INTO `suffix` VALUES ('ship', '情况，关系、身份，资格', 'n.', 10, 208, 'hardship困难', NULL);
-INSERT INTO `suffix` VALUES ('ator', '做…工作的人或物', 'n.', NULL, 209, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ial', '属于…的,有…性质的,具有…的', 'a./n.', NULL, 210, NULL, NULL);
 INSERT INTO `suffix` VALUES ('able', '可...的', 'a.', 12, 211, 'inflammable易燃的', NULL);
 INSERT INTO `suffix` VALUES ('mate', NULL, 'v./n.', NULL, 212, NULL, NULL);
@@ -398,6 +390,7 @@ INSERT INTO `suffix` VALUES ('itic', NULL, 'a.', NULL, 240, NULL, NULL);
 INSERT INTO `suffix` VALUES ('fy,efy,ify', 'to make ～(使成为；使...化）。to become ～（成为...）', 'v.', 11, 241, 'None', 'None');
 INSERT INTO `suffix` VALUES ('ter', '更', NULL, 12, 471, '', '');
 INSERT INTO `suffix` VALUES ('tim', '最', NULL, 13, 472, '', '');
+INSERT INTO `suffix` VALUES ('is', '表名词，“性质，情况”', NULL, 10, 473, '1.basis(bas 基础 + is 性质，情况 → 基础)', '');
 INSERT INTO `suffix` VALUES ('itude', '表示情况、性质、状态、事物', 'n.', NULL, 242, NULL, NULL);
 INSERT INTO `suffix` VALUES ('escence', '开始、正在、逐渐形成某种状态', 'n.', NULL, 243, NULL, NULL);
 INSERT INTO `suffix` VALUES ('escent', '开始、正在、逐渐成为某种状态的', 'a.', NULL, 244, NULL, NULL);
@@ -406,18 +399,17 @@ INSERT INTO `suffix` VALUES ('ition', '情况、状态,行为、行为的过程�
 INSERT INTO `suffix` VALUES ('itive', '…性质,能…的,具有…的,有…性质的', 'a.', NULL, 247, NULL, NULL);
 INSERT INTO `suffix` VALUES ('end', '物/ 数字/ 器物', 'n.', NULL, 248, NULL, NULL);
 INSERT INTO `suffix` VALUES ('um', '描述', 'n.', NULL, 249, NULL, NULL);
-INSERT INTO `suffix` VALUES ('ent', '可以加缀在动词或动词词根后，构成相应的形容词或表示行为者的名词。\n\n  1)充当形容词后缀时，意为that ～s（...的作用），其作用相当于英语的现在分词词尾-ing（...的），此类形容词往往有对应的以-ence或-ency结尾的表行为的名词。\n\n  2）-ent 作为名词后缀时，意为one that ～s （...者）,即表示该行为的主动者。\n\n  3）-ent 作为名词后缀时，表示物，意思为...物，...药。', 'a.', NULL, 250, NULL, NULL);
+INSERT INTO `suffix` VALUES ('ent', '具有…性质的，关于…的', 'a.', 12, 250, '1.different(differ 不同 + ent 具有…性质的，关于…的 → 不同的)', 'None');
+INSERT INTO `suffix` VALUES ('ent', '…药，…剂', NULL, 10, 474, '1.solvent(solve 溶解 + ent …药，…剂 → 溶剂)', '');
+INSERT INTO `suffix` VALUES ('ent', '人', NULL, 10, 475, '1.agent(ag 做 + ent 人 → 帮别人做事的人 → 代理人)', '');
 INSERT INTO `suffix` VALUES ('ee', '表动作的承受者', 'n.', 10, 251, 'employee雇员', NULL);
 INSERT INTO `suffix` VALUES ('id', '比如，关于', 'a.', NULL, 252, NULL, NULL);
-INSERT INTO `suffix` VALUES ('idity', NULL, 'n.', NULL, 253, NULL, NULL);
 INSERT INTO `suffix` VALUES ('arium', '场所、地点', 'n.', 10, 254, 'planetarium天文馆', NULL);
 INSERT INTO `suffix` VALUES ('ast', '人', 'n.', 10, 256, 'enthusiast热心者', NULL);
 INSERT INTO `suffix` VALUES ('ics', '...学,...术', 'n.', NULL, 257, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ency,ence', '抽象名词', 'n.', NULL, 258, NULL, NULL);
 INSERT INTO `suffix` VALUES ('fy', '使变成...', 'v.', 11, 436, 'None', 'None');
-INSERT INTO `suffix` VALUES ('ity,iti', NULL, 'n.', NULL, 259, NULL, NULL);
 INSERT INTO `suffix` VALUES ('zen', '人', 'n.', NULL, 260, NULL, NULL);
-INSERT INTO `suffix` VALUES ('ility,icity', '表示性质、状态、情况', 'n.', NULL, 261, NULL, NULL);
 INSERT INTO `suffix` VALUES ('iz', NULL, 'v.', NULL, 262, NULL, NULL);
 INSERT INTO `suffix` VALUES ('est', '最高级，最…的，地', NULL, NULL, 264, NULL, NULL);
 INSERT INTO `suffix` VALUES ('nna', NULL, 'n.', NULL, 265, NULL, NULL);
@@ -446,18 +438,17 @@ INSERT INTO `suffix` VALUES ('arian', '人', '', 10, 287, 'parliamentarian国会
 INSERT INTO `suffix` VALUES ('ance', '状态、情况、性质、行为', 'n.', 10, 288, 'buoyance浮力', '抽象');
 INSERT INTO `suffix` VALUES ('ure', '行为，事物；状态、行为，行为的结果、情况等', 'v./n.', NULL, 289, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ible', '能被…的,具有…性质的,易于,可', 'a.', NULL, 290, NULL, NULL);
-INSERT INTO `suffix` VALUES ('ibility,ability', '可...性、易...性、可...', 'n.', NULL, 291, NULL, NULL);
 INSERT INTO `suffix` VALUES ('acious', '有...性质的，多...的', 'a.', 12, 292, 'sagacious聪明的', NULL);
-INSERT INTO `suffix` VALUES ('acity', '性质', 'n.', 10, 293, 'veracity诚实，真实', '抽象');
 INSERT INTO `suffix` VALUES ('ing', '行为，行为的产生，...学，总称及材料', 'a.', NULL, 294, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ive', '有...性质的，有...作用的，属于...的', 'a.', 12, 295, 'active积极的', '抽象');
-INSERT INTO `suffix` VALUES ('ity', '抽象名词', NULL, NULL, 431, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ate', '人', 'n.', 10, 432, 'graduate毕业生', '厚道，带褒义');
 INSERT INTO `suffix` VALUES ('ature', NULL, 'n.', NULL, 296, NULL, NULL);
 INSERT INTO `suffix` VALUES ('some', '像...的，引起...的', 'a.', 12, 297, 'troublesome麻烦的', NULL);
 INSERT INTO `suffix` VALUES ('wards', '表方向', NULL, 13, 469, 'upwards向上地', NULL);
 INSERT INTO `suffix` VALUES ('aneous', '有...性质的', 'a.', 12, 298, 'subterraneous地下的', NULL);
-INSERT INTO `suffix` VALUES ('ory', '主要与动词或动词词根相结合，它可兼作名词后缀与形容词后缀。\n \n  1）作为名词后缀，-ory主要表示a place of ～ing（做...的场所）。有时，还表示a thing used for ～ing（作...用之物）。\n\n  2)作为形容词后缀，意思较为复杂，可以表示～ing（...行为的），characterzied by ～ing（以...行为为特点的），serving or tending to ～（有助于...的）。-ory 的异体有-atory。', 'a.', NULL, 299, NULL, NULL);
+INSERT INTO `suffix` VALUES ('ory', '有…性质的，属于…的，与…有关的', 'a.', 12, 299, '1.contradictory(contra 相反 + dict 说 + ory 有…性质的，属于…的，与…有关的 → 反过来说 → 矛盾的)', 'None');
+INSERT INTO `suffix` VALUES ('ory', '场所，地点', NULL, 10, 479, '1.armory(arm 武器 + ory 场所，地点 → 军械库)', '');
+INSERT INTO `suffix` VALUES ('ory', '物', NULL, 10, 480, '1.directory(direct 指导 + ory 物 → 电话目录)', '');
 INSERT INTO `suffix` VALUES ('ful', '充满...的、易于...、可...的、富有...的、具有...的', 'a.', 12, 300, 'cupful满满的', NULL);
 INSERT INTO `suffix` VALUES ('ile,il,eel', '表示物，易于…的', 'n./a.', NULL, 301, NULL, NULL);
 INSERT INTO `suffix` VALUES ('acle', '构成实物名词及抽象名词，表示“物”', 'n.', 10, 302, 'manacle手铐', NULL);
@@ -477,9 +468,8 @@ INSERT INTO `suffix` VALUES ('itan', NULL, NULL, NULL, 316, NULL, NULL);
 INSERT INTO `suffix` VALUES ('atory', '有...性质的、属于...的,表示场所、地', 'n./a.', NULL, 317, NULL, NULL);
 INSERT INTO `suffix` VALUES ('etto', '小', NULL, NULL, 318, NULL, NULL);
 INSERT INTO `suffix` VALUES ('hazard', '骰子游戏', NULL, NULL, 319, NULL, NULL);
-INSERT INTO `suffix` VALUES ('ority', NULL, NULL, NULL, 320, NULL, NULL);
+INSERT INTO `suffix` VALUES ('or,ator', '器物', NULL, 10, 478, '1.compressor(com 加强 + press 压 + or 器物 → 压缩机)\n2.radiator(radiate 发出，放射 + ator 器物 → 暖气片；散热器)', '');
 INSERT INTO `suffix` VALUES ('ultra', '超', NULL, NULL, 321, NULL, NULL);
-INSERT INTO `suffix` VALUES ('ability', '可...性', NULL, 10, 440, 'dependability可靠性', NULL);
 INSERT INTO `suffix` VALUES ('ician', '精通者,专家、能手或从事某种职业的', 'n.', NULL, 323, NULL, NULL);
 INSERT INTO `suffix` VALUES ('estic', NULL, 'a.', NULL, 324, NULL, NULL);
 INSERT INTO `suffix` VALUES ('dome', '领域', 'n.', NULL, 325, NULL, NULL);
@@ -513,9 +503,7 @@ INSERT INTO `suffix` VALUES ('esque,ique', '如…的,…式的,…似的,…派
 INSERT INTO `suffix` VALUES ('le,l,el', '反复,小,动作的结果或做动作时使；人，物，场所、地点', NULL, NULL, 354, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ior', '表示人，比较', 'n./a.', NULL, 355, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ization', '...化', 'n.', NULL, 356, NULL, NULL);
-INSERT INTO `suffix` VALUES ('ivity', '表示情况、状态、...性、...力', 'n.', NULL, 357, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ister', '…者,…家', 'n.', NULL, 358, NULL, NULL);
-INSERT INTO `suffix` VALUES ('itor', '表示人', 'n.', NULL, 359, NULL, NULL);
 INSERT INTO `suffix` VALUES ('istical', '属于…的，有…性质的，具有…的', 'a.', NULL, 360, NULL, NULL);
 INSERT INTO `suffix` VALUES ('it', '表示人和抽象名词', 'n.', NULL, 361, NULL, NULL);
 INSERT INTO `suffix` VALUES ('fier', '做...的人或物,使成...的人或物', 'n.', NULL, 362, NULL, NULL);
@@ -524,10 +512,8 @@ INSERT INTO `suffix` VALUES ('eth', '第…十,…十分之一', 'a./n.', NULL, 
 INSERT INTO `suffix` VALUES ('etic', '属于...的、有...性质的、关于...的', 'a.', NULL, 365, NULL, NULL);
 INSERT INTO `suffix` VALUES ('enne', '人(一般也指女性)', 'n.', NULL, 366, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ative', '...性质的、与...有关的、有...倾向的', 'a.', NULL, 367, NULL, NULL);
-INSERT INTO `suffix` VALUES ('aneity', '性质、状态、情况', 'n.', 10, 368, 'contemporaneity同时代', '抽象');
 INSERT INTO `suffix` VALUES ('atic', '有...性质的,属于...的,具有...的', 'a.', NULL, 369, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ally', '方式，程度，状态', NULL, 13, 452, 'conditionally有条件地', NULL);
-INSERT INTO `suffix` VALUES ('ality', '表示状态、情况、性质、...性', 'n.', 10, 371, 'technicality技术性', '抽象');
 INSERT INTO `suffix` VALUES ('s', '表示时间、地点、方式、状态', 'av.', NULL, 372, NULL, NULL);
 INSERT INTO `suffix` VALUES ('i', '属于某地方的或某国的人或语言', NULL, NULL, 373, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ce', '...次 , 自... , 从... , 次数', 'av.', NULL, 374, NULL, NULL);
@@ -549,7 +535,6 @@ INSERT INTO `suffix` VALUES ('igo', '疾病名词', 'n.', NULL, 389, NULL, NULL)
 INSERT INTO `suffix` VALUES ('ie,y', '小', NULL, NULL, 390, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ock', '小', NULL, NULL, 391, NULL, NULL);
 INSERT INTO `suffix` VALUES ('escency', '开始、正在、逐渐形成某种状态', 'n.', NULL, 392, NULL, NULL);
-INSERT INTO `suffix` VALUES ('osity', '动作，性质，状态，情况', 'n.', NULL, 393, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ling', '小,与某事物(或情况)有关的人或生物', NULL, NULL, 394, NULL, NULL);
 INSERT INTO `suffix` VALUES ('kin', '小,微,矮,微小', 'n.', NULL, 395, NULL, NULL);
 INSERT INTO `suffix` VALUES ('like', '似…的,像...样的，喜欢...的', 'a.', 12, 396, 'dreamlike梦幻般的', NULL);
@@ -572,13 +557,18 @@ INSERT INTO `suffix` VALUES ('ular', '似...形状的、有...性质的、属于
 INSERT INTO `suffix` VALUES ('way,ways', '表示方向、方式、 状态、位置', NULL, NULL, 413, NULL, NULL);
 INSERT INTO `suffix` VALUES ('yer', '与...有关的人', 'n.', NULL, 414, NULL, NULL);
 INSERT INTO `suffix` VALUES ('otic', '变态的、受之苦的、受影响、形成或增加的、状态或情况的等', 'a.', NULL, 415, NULL, NULL);
-INSERT INTO `suffix` VALUES ('ery', '抽象名词以及所有名词后缀ery意为\"state,quality,act,place where\"。后缀-ery来源于法语，主要充当派生后缀，可以加在两类单词后面：\n  1）加在动词后面表示 a place for ～ing (做...的场所）\n  2）加在名词后面，这时-ery意思比较复杂，它可以表示a place for ～ing (做...的场所）；the art or occupation of a  ～  (...的技艺）；a group of ～s（...的群休或集体）。', NULL, NULL, 416, NULL, NULL);
+INSERT INTO `suffix` VALUES ('ery', '场所，地点', NULL, 10, 416, '1.bakery(bake 烘焙 + ery 场所，地点 → 面包房)', 'None');
+INSERT INTO `suffix` VALUES ('ery', '行为，情况，状态', NULL, 10, 476, '1.bravery(brave 勇敢的 + ery 行为，情况，状态 → 勇敢)', '');
+INSERT INTO `suffix` VALUES ('ery', '行业，…法，…术，身份', NULL, 10, 477, '1.slavery(slave 奴隶 + ery 行业，…法，…术，身份 → 奴隶制；奴隶身份)', '');
 INSERT INTO `suffix` VALUES ('hood', '身份，状况，性质', NULL, 10, 417, 'neighborhood邻居', NULL);
 INSERT INTO `suffix` VALUES ('ify', '使成...，使...化', NULL, 11, 467, 'magnify放大', 'None');
-INSERT INTO `suffix` VALUES ('ity,ty,ety', '而-ity只与形容词或形容词词根相缀合，构成名词，表示具有某种特征的状态、性质或事实，其意思相当于the condition,quality or fact of being～。除了与单纯的形容词或词根相结合，-ity还经常加在某些带形容词后缀的单词上。所以，常常可以看到“形容词后缀+-ity”的复合形式，如-acity,-ality,-anity,-arity,-ability（=-able + -ity),-ibility(=-ible + -ity),-idity,-ility(= -ile + -', NULL, NULL, 418, NULL, NULL);
-INSERT INTO `suffix` VALUES ('or,our', '...的行为、状态、性质或特征', NULL, NULL, 419, NULL, NULL);
-INSERT INTO `suffix` VALUES ('th', '...的行为或过程', NULL, NULL, 420, NULL, NULL);
-INSERT INTO `suffix` VALUES ('wise', '派生后缀-wise 来自古英语名词wise(方法、方式），它可以加在形容词、名词或动词后面构成方式副词，表示in a ～manner或in a ～ing manner（以...的方式）；like a ～(像...的）；in the direction of～(朝...的方向）；in the ～respect（在...方面）等意思。在现代英语中，-wise的最后一种含义用得比较多，并因此变成相当活跃的能产型词缀，这是它往往通过连字符加缀在名词上', NULL, NULL, 421, NULL, NULL);
+INSERT INTO `suffix` VALUES ('ity', '具备某种性质，状况', NULL, 10, 418, '1.brevity(brev 短；缩短 + ity 具备某种性质，状况 → 短暂；简洁)', '只与形容词或形容词词根相缀合。“形容词后缀+-ity”的复合形式，如-acity,-ality,-anity,-arity,-ability（=-able + -ity),-ibility(=-ible + -ity),-idity,-ility(= -ile + -ity),-ivity(= -ive + -ity),-ocity,-osity(=-ous + -ity)等等。');
+INSERT INTO `suffix` VALUES ('or,ator', '情况，状态，性质', NULL, 10, 419, '1.error(err 犯错 + or 情况，状态，性质 → 错误，差错)', 'None');
+INSERT INTO `suffix` VALUES ('th', '行为，性质，状态', NULL, 10, 420, '1.birth(bear 生孩子 + th 行为，性质，状态 → 分娩；出身)', 'None');
+INSERT INTO `suffix` VALUES ('wise', '方向，方式，状态', NULL, 13, 421, '1.clockwise(clock 时钟 + wise 方向，方式，状态 → 顺时针地)', 'None');
+INSERT INTO `suffix` VALUES ('ty', '...十', NULL, 14, 481, '1.eighty(eight 八 + ty ...十 -> 八十）', '');
+INSERT INTO `suffix` VALUES ('teen', '十...', NULL, 14, 482, '1.eighteen(eight 八 + teen 十... -> 十八)', '');
+INSERT INTO `suffix` VALUES ('th', '第…', NULL, 14, 483, '1.eighth(eight 八 + th 第... ->第八)', '');
 INSERT INTO `suffix` VALUES ('y', '有...的，多...的', 'a.', NULL, 422, NULL, NULL);
 INSERT INTO `suffix` VALUES ('acy', '性质，品质、状态、行为、地位', NULL, 10, 423, 'failacy谬误', '抽象');
 INSERT INTO `suffix` VALUES ('cian', '人', NULL, NULL, 424, NULL, NULL);
@@ -621,14 +611,14 @@ INSERT INTO `suffix` VALUES ('ate', '职位，职权', NULL, 10, 464, 'professor
 DROP TABLE IF EXISTS `wordroot`;
 CREATE TABLE `wordroot`  (
   `wordroot` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `translation` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `mean` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `translation` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `mean` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `category` int(11) NULL DEFAULT NULL,
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `note` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `note` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `example` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1505 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1509 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of wordroot
@@ -661,7 +651,7 @@ INSERT INTO `wordroot` VALUES ('cyte,cyt,cyto', '细胞', NULL, NULL, 199, NULL,
 INSERT INTO `wordroot` VALUES ('civ', '公民', 'citizen', 17, 200, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ante,anti,ant', '前', NULL, NULL, 201, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ump', '隆起', NULL, NULL, 202, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('brev,bridg', '短的', 'short', 25, 203, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('brev,bridg', '短；缩短', 'short, to shorten', 24, 203, 'None', '1.abreviate(ab 加强 + brev 短；缩短 + iate 做 → 一再弄短 → 缩短)\n2.abridge(a 加强 + bridg 短；缩短 + e → 删减；削减)');
 INSERT INTO `wordroot` VALUES ('brig', '打,战斗 打 战斗', NULL, NULL, 204, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('biblio', '书', 'book', 22, 205, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('inter,integr', '完整的，全部的', 'whole', 25, 206, NULL, NULL);
@@ -679,7 +669,6 @@ INSERT INTO `wordroot` VALUES ('gran,grain', '谷物，谷粒，种子', 'grain'
 INSERT INTO `wordroot` VALUES ('parl', '说，谈话', 'speak', 24, 218, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('past', '喂养，牧羊人', NULL, NULL, 219, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ed', '吃', 'eat', 24, 220, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('vor', '吃', NULL, NULL, 221, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('phag', '吃', 'eat', 24, 222, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('tuit,tut', '照管,监护', NULL, NULL, 223, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('vol,volunt', '意志,意愿,自由', 'wish,will', 17, 224, NULL, NULL);
@@ -781,14 +770,14 @@ INSERT INTO `wordroot` VALUES ('ped,pod,pus,peach,patch,pet', '脚', 'foot', NUL
 INSERT INTO `wordroot` VALUES ('ped', '儿童', 'child', 17, 321, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('or,ora,ore,orat', '说', NULL, NULL, 322, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('oste,osteo,oss,osse', '骨头', 'bone', 17, 323, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('fac,fact,fec,fect,fic,fict,fig', '制造，做', 'make,do', 24, 324, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('fac, fact, feas, fect, fic(i), fig', '制作，做', 'to do, to make', 24, 324, 'None', '1.facile(fac 做，制作 + ile 能…的 → 容易做的)\n2.factor(fact 做，制作 + or 表情况 → 促使人做 → 动力)\n3.malfeasance(mal 坏，恶 + feas 做，制作 + ance 表性质 → 做坏事 → 不法行为)\n4.infect(in 进入 + fect 做，制作 → 做进去 → 传染)\n5.efficacy(ef + fic 做，制作 + acy 加强 → 功效，功能)\n6.efficient(ef + fici 做，制作 + ent 具有…性质的，关于…的 → （做事）有效率的)\n7.figment(fig 做，制作 + ment 具体物 → 做出的东西 → 虚构的事物)');
 INSERT INTO `wordroot` VALUES ('duc,duct', '引导，促使', 'lead,bring', 24, 325, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dign,dain,deign', '有价值的', NULL, NULL, 326, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('preci,prais,pric,priz', '价值，价格', 'value', 26, 327, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('xyl(o)', '木', NULL, NULL, 328, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('gen,gener,genit', '出生，生产', 'birth,produce', 24, 329, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('oxy,ox', '酸', NULL, NULL, 330, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('gon,angul,angl,corn', '角', NULL, NULL, 331, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('gon', '角', 'angle', 26, 331, 'None', '1.diagonal(dia 穿过 + gon 角 + al 表物 → 穿过两个对角〔的线〕→ 对角线)');
 INSERT INTO `wordroot` VALUES ('rat,ratio', '推定，计算', 'calculate', 24, 332, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('arithm,calc,count', '计算', NULL, NULL, 333, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('zo,zoo', '生命，动物', 'animal', 16, 334, NULL, NULL);
@@ -854,7 +843,6 @@ INSERT INTO `wordroot` VALUES ('prot,proto', '前，第一，原', NULL, NULL, 3
 INSERT INTO `wordroot` VALUES ('rud', '粗鲁的', 'rude', 25, 395, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('proxim,proach', '近的', 'near', 25, 396, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('port', '拿', 'carry', 24, 397, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('pot,potent', '强大的', 'powerful', 25, 398, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('porc,pork', '猪', 'pig', 16, 399, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('pol,poly', '卖', NULL, NULL, 400, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('plut,pluto', '财', NULL, NULL, 401, NULL, NULL);
@@ -935,11 +923,11 @@ INSERT INTO `wordroot` VALUES ('hedron,hedral', '...面体，...面体的', NULL
 INSERT INTO `wordroot` VALUES ('gyr,gyro', '旋转', NULL, NULL, 476, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('gloss,glot', '舌头', 'tongue', 17, 477, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('glaci', '冰', 'ice', 15, 478, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('geo', '地球', 'earth', 15, 479, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('voc, vok', '叫喊；声音', 'to call, voice', 24, 1507, '', '1.vocation(voc 叫喊；声音 + ation 行为，过程，状态，结果 →〔受到〕召唤 → 使命)\n2.convoke(con 共同 + vok 叫喊；声音 + e → 喊到一起 → 召集)');
 INSERT INTO `wordroot` VALUES ('gastr,gastro', '胃，腹', 'stomach', 17, 480, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('fibr', '纤维', NULL, NULL, 481, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('fid,fiss', '裂开', NULL, NULL, 482, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('fix', '固定', 'fix', 24, 483, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('fix', '固定', 'to fix', 24, 483, 'None', '1.affix(af 加强 + fix 固定 → 固定上去)');
 INSERT INTO `wordroot` VALUES ('flor,flour', '花', 'flower', 16, 484, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('foli', '叶子', 'leaf', 16, 485, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('frater', '兄弟', NULL, NULL, 486, NULL, NULL);
@@ -958,8 +946,8 @@ INSERT INTO `wordroot` VALUES ('ethn,ethno', '国家，民族', 'nation', 26, 49
 INSERT INTO `wordroot` VALUES ('emper,imper', '命令，指令', 'command', 26, 499, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dors', '背，背部', 'back', 17, 500, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('divid,divis', '分', NULL, NULL, 501, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('derm,dermat', '皮肤', 'skin', 17, 502, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('dens', '变厚', 'make thick', 24, 503, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('derm,dermat', '皮肤', 'skin', 17, 502, 'None', '1.dermal(derm 皮肤 + al …的 → 皮肤的)\n2.dermatitis(dermat 皮肤 + itis 表炎症 → 皮炎)');
+INSERT INTO `wordroot` VALUES ('dens', '变浓厚', 'to become thick', 24, 503, 'None', '1.densimeter(densi〔= dens〕变浓厚 + meter 测量计 → 测量密度的仪器 → 密度计)');
 INSERT INTO `wordroot` VALUES ('dendr,dendro', '树', NULL, NULL, 504, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dactyl,dactylo', '指，趾', NULL, NULL, 505, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('cyan,cyano', '蓝，青，氰', NULL, NULL, 506, NULL, NULL);
@@ -1057,20 +1045,20 @@ INSERT INTO `wordroot` VALUES ('lu,lav,lau', '冲洗', NULL, NULL, 599, NULL, NU
 INSERT INTO `wordroot` VALUES ('ject', '投掷，扔', 'throw,cast', 24, 600, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('tom,tomy', '切', 'cut', 24, 601, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('solv,solu,solut', '放松', 'loosen', 24, 602, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('graph,gram', '写，画', 'write', 24, 603, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('graph,gram', '写，画', 'to write, to draw', 24, 603, 'None', '1.autograph(auto 自己 + graph 写，画 → 自己写的字 → 亲笔字)\n2.diagram(dia 穿过 + gram 写，画 → 交叉画图 → 图解)');
 INSERT INTO `wordroot` VALUES ('cond', '隐藏', 'hide', 24, 604, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('vert,vers', '转', 'turn', 24, 605, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dic,dict', '说话，断言，分派', 'say,assert', 24, 606, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('norm', '规范，正规，正常,标准', NULL, NULL, 608, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('juven', '年轻，年少', NULL, NULL, 609, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('tain，ten，tin，tinu,tent', '握，持，守', 'hold', 24, 610, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('tain, ten, tin', '拿住', 'to hold', 24, 610, 'None', '1.attain(at 加强 + tain 拿住 → 稳稳拿住 → 获得)\n2.tenable(ten 拿住 + able 能…的 → 能拿住的 → 可守住的)\n3.continue(con 加强 + tin 拿住 + ue → 从头拿到尾 → 继续)');
 INSERT INTO `wordroot` VALUES ('hom,hum', '人类，地，湿', NULL, NULL, 611, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('sat,sati,satis,satur', '足，满，饱', 'enough,full of food', 25, 612, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('sent,sens', '感觉', 'feel', 24, 613, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('chame', '地面', 'ground', 26, 1110, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('pris,prehend,prehens,pren,pregn,priev', '拿，抓', 'catch', 24, 615, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('cent,cant,chant,chans', '歌唱', NULL, NULL, 616, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('bas,base', '低的', 'low', 25, 618, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('bas(e)', '低, 下；基础', 'low,foundation', 25, 618, 'None', '1.basic(bas 低，下；基础 + ic …的 → 基础的)\n2.baseborn(base 低，下；基础 + born 出生 → 出身卑微的)');
 INSERT INTO `wordroot` VALUES ('bas,bat', '走', NULL, NULL, 619, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('prol', '孩子', 'offspring', 17, 1387, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('scrib,script', '写', 'write', 24, 621, NULL, NULL);
@@ -1099,7 +1087,7 @@ INSERT INTO `wordroot` VALUES ('don,dit', '给', 'give', 24, 643, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('path,pathy', '疾病，疗法', NULL, NULL, 644, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('(a)esthet', '感受', 'feeling', 26, 645, '', NULL);
 INSERT INTO `wordroot` VALUES ('troph', '营养', 'nutrition', 26, 646, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('mnes,mnem', '记起', 'remember', 24, 647, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('mnes,mnem', '记忆', 'to remember', 24, 647, 'None', '1.hypomnesia(hypo 下，低；次等 + mnes 记忆 + ia 某种病 → 记忆变弱 → 记忆力减退)\n2.mnemonic(mnem 记忆 + on 名词后缀 + ic ...的 ->记忆力的)');
 INSERT INTO `wordroot` VALUES ('morph', '形状', 'form', 26, 648, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('press', '压，按', 'press', 24, 649, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ple,plet,plen,pli,ply', '满的', 'full,fill', 25, 650, NULL, NULL);
@@ -1258,7 +1246,6 @@ INSERT INTO `wordroot` VALUES ('liter', '信', 'letter', 22, 802, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('cel,cul,ceal', '地穴', NULL, NULL, 803, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dur', '最后的，坚固的', 'last,hard', 25, 804, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('scen', '设定，舞台', NULL, NULL, 805, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('dox,dogma', '意见', NULL, NULL, 806, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('min', '项目', 'project', 26, 1306, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('phras,pha,phe,phu', '说', NULL, NULL, 808, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('jur,juris', '咒骂，发誓', 'swear', 24, 809, NULL, NULL);
@@ -1270,7 +1257,6 @@ INSERT INTO `wordroot` VALUES ('mat', '熟的', NULL, NULL, 814, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('cau,cur', '小心，注意', NULL, NULL, 815, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ambul', '走，步行', 'walk', 24, 816, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('domin', '支配', 'lord', 24, 817, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('post,poster', '在...后面', 'behind', 25, 818, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('text', '编织', 'weave', 24, 819, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('med', '治愈，打算', NULL, NULL, 820, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('mon,min', '告诫，提醒', NULL, NULL, 821, NULL, NULL);
@@ -1326,8 +1312,8 @@ INSERT INTO `wordroot` VALUES ('cel', '天堂', 'heaven', 20, 871, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('glob', '球', NULL, NULL, 872, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('mar', '斗争，海', NULL, NULL, 873, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('op,opt,opto,ophthalm', '眼睛，视力', NULL, NULL, 874, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('matr,mater', '母亲', 'mother', 17, 875, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('patr,patri,pater', '父，祖', 'father', 17, 876, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('matern, matr(i)', '母性，母亲', 'mother', 17, 875, 'None', '1.maternity(matern 母性，母亲 + ity 具备某种性质，状况 → 母性；产科医院)\n2.matrimony(matri 母性，母亲 + mony 表行为的结果 → 结婚后会成为母亲 → 婚姻)\n3.matron(matr 母性，母亲 + on 表人 → 母亲 → 主妇)');
+INSERT INTO `wordroot` VALUES ('patr(i), pater', '父亲 , 引申为“祖国”', 'father', 17, 876, 'None', '1.expatriate(ex 出 + patri 父亲，引申为“祖国” + ate 做，造成，使… → 离开祖国 → 使移居国外)\n2.patron(patr 父亲，引申为“祖国” + on 表人 → 像父亲一样的人 → 恩人)\n3.paternal(pater 父亲，引申为“祖国” + nal → 父亲般的)');
 INSERT INTO `wordroot` VALUES ('rus,rur', '乡村', 'country', 20, 877, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('crud', '原始的，未经加工的', 'raw', 25, 1137, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('coloss,colis', '大', NULL, NULL, 879, NULL, NULL);
@@ -1445,7 +1431,7 @@ INSERT INTO `wordroot` VALUES ('mon', '单独，一个', NULL, NULL, 992, NULL, 
 INSERT INTO `wordroot` VALUES ('plex,pli,plic,ply', '折叠', 'fold', 24, 993, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('sper', '希望', 'hope', 24, 994, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('stell', '星', 'star', 15, 995, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('ut,uti,util,us', '使用', 'use', 24, 996, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('us, ut, util', '用', 'to use', 24, 996, 'None', '1.usage(us 用 + age 表总称 → 用法；惯例)\n2.utensil(ut 用 + ensil 表物品 → 用的物品 → 用具)\n3.utility(util 用 + ity 具备某种性质，状况 → 公用事业；有用)');
 INSERT INTO `wordroot` VALUES ('val', '强', NULL, NULL, 997, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('abl,abili', '能够的', 'able', 25, 999, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('abol', '消除，终止', 'do away with', 24, 1000, NULL, NULL);
@@ -1499,7 +1485,6 @@ INSERT INTO `wordroot` VALUES ('bank', '长凳', 'bench', 22, 1049, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('barbar', '口吃', 'stammer', 24, 1050, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('barr', '条，块', 'bar', 26, 1051, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('barr', '粘贴', 'stick', 24, 1052, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('bas,base', '地基', 'foundation', 26, 1053, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('beat', '神圣的', 'blessed', 25, 1054, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('bever', '喝', 'drink', 24, 1055, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('bey', '期望，要求', 'expect', 24, 1056, NULL, NULL);
@@ -1586,7 +1571,7 @@ INSERT INTO `wordroot` VALUES ('cup', '欲望', 'desire', 26, 1141, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('cur', '关心', 'care', 24, 1142, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('curt', '短的', 'short', 25, 1143, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('custod', '保卫，警卫', 'guard', 17, 1144, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('custom', '习惯', 'habit', 26, 1145, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('custom', '习惯', 'habit', 26, 1145, 'None', '1.accustom(ac 加强 + custom 习惯 → 使习惯)');
 INSERT INTO `wordroot` VALUES ('cylind', '滚动', 'roll', 24, 1146, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('cyn', '狗', 'dog', 16, 1147, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dadin', '开玩笑', 'jest', 24, 1148, NULL, NULL);
@@ -1604,7 +1589,6 @@ INSERT INTO `wordroot` VALUES ('dign', '高尚的', 'worthy,noble', 25, 1159, NU
 INSERT INTO `wordroot` VALUES ('dogm', '意见', 'opinion', 26, 1160, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dole', '使伤心', 'grieve', 24, 1161, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dot', '给', 'give', 24, 1162, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('dox', '意见', 'opinion', 26, 1163, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dra', '执行，工作', 'perform', 24, 1164, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('du,dub,doub', '二', 'two', 26, 1165, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('dubi', '可疑的', 'doubtful', 25, 1166, NULL, NULL);
@@ -1649,7 +1633,7 @@ INSERT INTO `wordroot` VALUES ('fug', '逃走', 'flee', 24, 1206, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('fulmin', '打雷', 'thunder', 24, 1207, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('fum', '烟', 'smoke', 15, 1208, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('furc', '叉，餐叉', 'fork', 22, 1209, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('fus', '倒，倾倒', 'pour', 24, 1211, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('fus', '流, 泻；融化', 'to pour, to melt', 24, 1211, 'None', '1.diffuse(dif 分开 + fus 流，泻；融化 + e → 分流 → 散播)');
 INSERT INTO `wordroot` VALUES ('gain', '反对，违反', 'against', 24, 1212, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('galax', '乳汁，牛奶', 'milk', 19, 1213, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('gam,gamy', '结婚，婚姻', 'marriage', 17, 1214, NULL, NULL);
@@ -1776,7 +1760,7 @@ INSERT INTO `wordroot` VALUES ('oculus', '眼睛', 'eye', 17, 1339, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('odium', '仇恨', 'hatred', 26, 1340, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('officius', '工作', 'to do work', 24, 1341, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ominosus', '凶兆', 'evil omen', 26, 1342, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('omnis,omni', '全部的，整体的', 'all', 25, 1343, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('omni', '全部；全知', 'all, knowing all', 25, 1343, 'None', '1.omnipotent(omni 全部；全知 + pot 能力 + ent 具有…性质的，关于…的 → 全能的)');
 INSERT INTO `wordroot` VALUES ('onus,oner', '负担', 'burden', 26, 1344, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('opacus', '阴暗的', 'shady dark', 25, 1345, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('opponere,oppositus', '反对', 'against', 24, 1346, NULL, NULL);
@@ -1814,8 +1798,7 @@ INSERT INTO `wordroot` VALUES ('plumb', '领导，引导', 'lead', 24, 1378, NUL
 INSERT INTO `wordroot` VALUES ('pneumon', '肺', 'lung', 17, 1379, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('point,punt', '指向，使锋利', 'point,make sharp', 24, 1380, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('pol', '平整的，光滑的', 'smooth', 25, 1381, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('postul', '需要', 'demand', 24, 1382, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('pot', '喝', 'drink', 24, 1383, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('pot', '喝', 'to drink', 24, 1383, 'None', '1.potable(pot 喝 + able 可…的 → 可饮用的)');
 INSERT INTO `wordroot` VALUES ('pragm', '行为', 'deed', 26, 1384, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('pris', '拿', 'take', 24, 1385, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('prob,prov', '检查，试验', 'test', 24, 1386, NULL, NULL);
@@ -1901,7 +1884,7 @@ INSERT INTO `wordroot` VALUES ('uber', '硕果累累的', 'fruitful', 25, 1468, 
 INSERT INTO `wordroot` VALUES ('und', '波浪', 'wave', 15, 1469, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('up', '向上的，在...上面', 'up,over', 25, 1470, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('vac,vacu,van,void', '空的', 'empty', 25, 1472, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('vor', '吃', 'eat', 24, 1473, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('vor', '吃', 'to eat', 24, 1473, 'None', '1.devour(de 向下 + vour〔= vor〕吃 → 吃下去 → 吞吃)');
 INSERT INTO `wordroot` VALUES ('vot', '发誓，誓言', 'vow', 24, 1474, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('vuls,vult', '拔，撕', 'pluck,tear', 24, 1475, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ware', '看', 'watch', 24, 1476, NULL, NULL);
@@ -1929,5 +1912,7 @@ INSERT INTO `wordroot` VALUES ('id,et', '他', 'it', 17, 1501, '', NULL);
 INSERT INTO `wordroot` VALUES ('al', '他者', 'else', 17, 1502, '', NULL);
 INSERT INTO `wordroot` VALUES ('yond', '你', 'you', 17, 1503, '', NULL);
 INSERT INTO `wordroot` VALUES ('anthrop', '人，人类', 'man, human being', 17, 1504, '', 'anthropology(anthrop 人，人类 + ology …学 → 人类学)');
+INSERT INTO `wordroot` VALUES ('pot', '能力，力量', 'ability，power', 26, 1505, '', '1.impotence(im 无 + pot 能力，力量 + ence 表状态 → 无力气；无能为力)');
+INSERT INTO `wordroot` VALUES ('doc, doct, dox, dog', '教；观点', 'to teach, opinion', 24, 1506, '', '1.docile(doc 教；观点 + ile 能…的 → 容易教的；温顺的)\n2.doctor(doct 教；观点 + or 表人 → 受过〔最高〕教育的人 → 博士)\n3.heterodox(hetero 异 + dox 教；观点 → 异端思想)\n4.dogma(dog 教；观点 + ma → 教条)');
 
 SET FOREIGN_KEY_CHECKS = 1;

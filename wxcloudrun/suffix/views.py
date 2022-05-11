@@ -22,7 +22,6 @@ def suffix_list():
     #     return make_err_response('缺少action参数')
 
     # 接收参数
-    print(params)
     par = {}
     par['all'] = True if (
         'page' not in params or 'size' not in params) else False  # 是否全量查询

@@ -60,7 +60,6 @@ def query_wordrootlist(params):
         # 组合sql
         sqlStr = sqlStr + whereStr + filterStr + andStr + keyStr + 'ORDER BY wordroot '
 
-        print(sqlStr)
         return fetch_to_dict(sqlStr, {}) if params['all'] else fetch_to_dict_pagetion(sqlStr, {}, int(params['page']), int(params['size']))
 
     except OperationalError as e:
