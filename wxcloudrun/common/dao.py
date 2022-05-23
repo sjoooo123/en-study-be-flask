@@ -72,10 +72,6 @@ def query_relatedlist(params):
         sqlStr = sqlStr + affixStr + link1Str + wordrootStr + link2Str + \
             meanStr + link3Str + translationStr + 'ORDER BY %s ' % (fieldStr)
 
-        print(params)
-        print(affix, wordroot, mean, translation)
-        print(sqlStr)
-
         return fetch_to_dict(sqlStr, {})
 
     except OperationalError as e:

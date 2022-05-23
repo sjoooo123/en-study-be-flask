@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 11/05/2022 13:14:26
+ Date: 12/05/2022 13:08:02
 */
 
 SET NAMES utf8mb4;
@@ -364,7 +364,7 @@ INSERT INTO `suffix` VALUES ('y', '抽象名词', 'n.', NULL, 215, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ize', '以...方式对待，...化', 'v.', 11, 216, 'realize实现', NULL);
 INSERT INTO `suffix` VALUES ('ist', '表示...主义的', '', 12, 217, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ist', '从事...工作的人', NULL, 10, 468, 'socialist社会主义者', NULL);
-INSERT INTO `suffix` VALUES ('al', '行为', 'n.', 10, 218, 'withdrawal撤退', '抽象');
+INSERT INTO `suffix` VALUES ('al', '行为，状况，事情', 'n.', 10, 218, '1.servival(survive 幸存 + al 行为，状况，事情 → 幸存)', '抽象');
 INSERT INTO `suffix` VALUES ('d', NULL, 'a.', NULL, 219, NULL, NULL);
 INSERT INTO `suffix` VALUES ('er', '物品，机器', 'n.', 10, 220, 'washer洗衣机', NULL);
 INSERT INTO `suffix` VALUES ('age', '场所，地点', 'n.', 10, 221, 'orphanage孤儿院', NULL);
@@ -395,7 +395,7 @@ INSERT INTO `suffix` VALUES ('itude', '表示情况、性质、状态、事物',
 INSERT INTO `suffix` VALUES ('escence', '开始、正在、逐渐形成某种状态', 'n.', NULL, 243, NULL, NULL);
 INSERT INTO `suffix` VALUES ('escent', '开始、正在、逐渐成为某种状态的', 'a.', NULL, 244, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ry', '...行业；...行为；...地点;...的集合体', 'n.', NULL, 245, NULL, NULL);
-INSERT INTO `suffix` VALUES ('ition', '情况、状态,行为、行为的过程或结果', 'n.', NULL, 246, NULL, NULL);
+INSERT INTO `suffix` VALUES ('ition', '行为，状态，结果，由行为产生的事物', 'n.', 10, 246, '1.addition(add 增加 + ition 行为，状态，结果，由行为产生的事物 → 加；增加的人（或物）)', 'None');
 INSERT INTO `suffix` VALUES ('itive', '…性质,能…的,具有…的,有…性质的', 'a.', NULL, 247, NULL, NULL);
 INSERT INTO `suffix` VALUES ('end', '物/ 数字/ 器物', 'n.', NULL, 248, NULL, NULL);
 INSERT INTO `suffix` VALUES ('um', '描述', 'n.', NULL, 249, NULL, NULL);
@@ -580,7 +580,7 @@ INSERT INTO `suffix` VALUES ('ture', '表示行为、行为的结果以及与行
 INSERT INTO `suffix` VALUES ('tude', '状态、质量、行为', NULL, NULL, 430, NULL, NULL);
 INSERT INTO `suffix` VALUES ('ard', '人', NULL, 10, 433, 'bastard私生子', '贬义');
 INSERT INTO `suffix` VALUES ('ia', '通过，桥梁，重大疾病', NULL, NULL, 434, NULL, NULL);
-INSERT INTO `suffix` VALUES ('al', '具有...性质的', 'a.', 12, 435, 'continental大陆的', NULL);
+INSERT INTO `suffix` VALUES ('al', '…的，具有…性质的', 'a.', 12, 435, '1.emotional(emotion 情感 + al …的，具有…性质的 → 感情（上）的)', 'None');
 INSERT INTO `suffix` VALUES ('‘s', '所有格', '', 12, 438, 'today\'s今日的', NULL);
 INSERT INTO `suffix` VALUES ('\'s', '店铺', '', 10, 439, 'greengrocer\'s菜场', NULL);
 INSERT INTO `suffix` VALUES ('aceous', '有...性质的', NULL, 12, 441, 'carbonaceous含碳的', NULL);
@@ -591,8 +591,8 @@ INSERT INTO `suffix` VALUES ('age', '行为', NULL, 10, 446, 'pilgramage朝圣',
 INSERT INTO `suffix` VALUES ('age', '状态，身份', NULL, 10, 447, 'reportage报告文学', NULL);
 INSERT INTO `suffix` VALUES ('age', '物', NULL, 10, 448, 'carriage马车', NULL);
 INSERT INTO `suffix` VALUES ('aire', '物', NULL, 10, 449, 'questionaire调查问卷', NULL);
-INSERT INTO `suffix` VALUES ('al', '人', NULL, 10, 450, 'rival竞争者', NULL);
-INSERT INTO `suffix` VALUES ('al', '物', NULL, 10, 451, 'manual手册', NULL);
+INSERT INTO `suffix` VALUES ('al', '有生命的...', NULL, 10, 450, '1.criminal(crime 罪行 + al 有生命的 → 犯罪分子)', 'None');
+INSERT INTO `suffix` VALUES ('al', '物', NULL, 10, 451, '1.cereal(cere 谷 + al 物 → 谷物)', 'None');
 INSERT INTO `suffix` VALUES ('ancy', '状态、情况、性质、行为', NULL, 10, 453, 'elegancy优美，高雅', '抽象');
 INSERT INTO `suffix` VALUES ('ant', '人', NULL, 10, 454, 'participant参与者', NULL);
 INSERT INTO `suffix` VALUES ('ant', '物', NULL, 10, 455, 'excitant兴奋剂', NULL);
@@ -751,7 +751,7 @@ INSERT INTO `wordroot` VALUES ('cover', '覆盖', NULL, NULL, 301, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('chron', '时间', 'time', 26, 302, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('aqu', '水', 'water', 15, 303, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('cosm', '世界', 'world', 26, 304, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('aer,aero,aeri', '空气，空中，航空', 'air', 26, 305, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('aer,aero,aeri', '空气', 'air', 15, 305, 'None', '1.aerate(aer 空气 + ate 使 → 使有空气 → 通气)\n2.aerology(aero 空气 + logy …学 → 气象学，大气学)\n3.aeriform(aeri 空气 + form 形状 → 如空气般 → 无形的)');
 INSERT INTO `wordroot` VALUES ('joy,joc,jol,jov', '欢乐，开心', NULL, NULL, 306, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ang,eng,ank,anch', '弯曲，角', NULL, NULL, 307, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ang', '勒死，窒息', NULL, NULL, 308, NULL, NULL);
@@ -870,7 +870,7 @@ INSERT INTO `wordroot` VALUES ('odont,odonto', '牙，牙齿', NULL, NULL, 422, 
 INSERT INTO `wordroot` VALUES ('nour,nurs', '喂养，营养', NULL, NULL, 423, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('od', '歌曲', 'song', 26, 424, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ocul', '眼睛，苗', NULL, NULL, 425, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('nom,nomy', '规矩（学，术，法，治）', 'None', 26, 426, 'None', NULL);
+INSERT INTO `wordroot` VALUES ('nom,nomy', '某一领域的知识、理论, …学、术', 'a field of knowledge', 26, 426, 'None', '1.agronomist(agro 田地，农业 + nom 某一领域的知识、理论，…学、术 + ist 从事某研究的人 → 农学家)\n2.agronomy(agro + nomy 某一领域的知识、理论，…学、术 → 农学)');
 INSERT INTO `wordroot` VALUES ('neutr', '中', NULL, NULL, 427, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('neg', '否认，否定', NULL, NULL, 428, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('necr,necro', '死亡，死尸', NULL, NULL, 429, NULL, NULL);
@@ -993,7 +993,7 @@ INSERT INTO `wordroot` VALUES ('arter', '管子', 'pipe', 22, 545, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('anth', '花', 'flower', 16, 546, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('am,em', '拿', NULL, NULL, 547, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('alg', '痛苦', 'pain', 26, 548, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('agr,agro,agri', '田，地', 'field,land', 22, 549, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('agr,agro,agri', '田地 , 引申为“农业”', 'field,land', 22, 549, 'None', '1.agrestic(agr 田地，引申为“农业” + estic …的 → 土地的 → 乡野的)\n2.agronomy(agro 田地，引申为“农业” + nomy …学 → 农学)\n3.agriculture(agri 田地，引申为“农业” + cult 耕种，培养 + ure 行为有关的物 → 农业)');
 INSERT INTO `wordroot` VALUES ('agog', '领导，引导', 'lead', 24, 550, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('aem,haem(o),haemat(o),em,hem(o),hemat(o)', '血', NULL, NULL, 551, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('sit,sid,sed,sess(sid)', '坐', NULL, NULL, 552, NULL, NULL);
@@ -1034,7 +1034,7 @@ INSERT INTO `wordroot` VALUES ('sem,sembl,sim,simul,simil', '相同，相似，�
 INSERT INTO `wordroot` VALUES ('pall', '苍白无力的;暗淡的;浅色的', NULL, NULL, 588, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('lud,lus', '游戏，扮演', 'play', 24, 589, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('l(i)ev', '举，升，轻的', NULL, NULL, 590, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('ali,al,alter,ulter,altru', '其他的，变更', NULL, NULL, 592, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('alter, altern', '改变', 'to change', 24, 592, 'None', '1.alterable(alter 改变 + able 可…的 → 可改变的)\n2.alternate(altern 改变 + ate 做，造成，使… → 更换着做事 → 交替)');
 INSERT INTO `wordroot` VALUES ('rad,ras,raz', '刮擦', NULL, NULL, 593, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ori,orig,ort', '起来，开始', 'rise,begin', 24, 594, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('trud,trus', '推', 'push', 24, 595, NULL, NULL);
@@ -1171,7 +1171,7 @@ INSERT INTO `wordroot` VALUES ('pot,pow,poss', '有能力的，有力量的', NU
 INSERT INTO `wordroot` VALUES ('croch,croach,crouch,crutch,crook', '弯，勾', NULL, NULL, 728, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('body', '主体', NULL, NULL, 729, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('bar', '重量', 'weight', 26, 730, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('am,amor,amat', '喜欢，爱', 'love', 24, 731, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('am,amor,amat', '喜欢，爱', 'love', 24, 731, 'None', '1.amity(am 爱，喜欢 + ity 具备某种性质，状况 → 友好，和睦)\n2.amiable(ami〔= am〕爱，喜欢 + able …的 → 能爱〔别人〕的 → 友善的)\n3.amicable(amic〔= am〕爱，喜欢 + able 可…的，能…的；具有…性质的 → 友好的，温和的)\n4.amorous(amor 爱，喜欢+ ous …的 → 色情的；恋爱的)\n5.amateur(amat 爱，喜欢 + eur 表人 → 爱…的人 → 业余爱好者)');
 INSERT INTO `wordroot` VALUES ('tail', '切', 'cut', 24, 732, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('light', '光', NULL, NULL, 733, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('gross', '大的，伟大的', 'great', 25, 734, NULL, NULL);
@@ -1181,7 +1181,7 @@ INSERT INTO `wordroot` VALUES ('cumb,cub', '倾斜，躺', 'lie down', 24, 737, 
 INSERT INTO `wordroot` VALUES ('clav', '键，关键', NULL, NULL, 738, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('per,pir,par', '危险，经验', NULL, NULL, 739, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('number,numer,numerou', '数，计算', 'number', 24, 740, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('alt', '高的，高级的', 'high', 25, 741, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('alt,alti', '高', 'high', 25, 741, 'None', '1.altar(alt 高 + ar 表物 → 高出的东西 → 祭坛)\n2.altimeter(alti 高 + meter 测量计 → 高度计)');
 INSERT INTO `wordroot` VALUES ('radic,radis', '根', 'root', 16, 742, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('lips', '离开', 'leave', 24, 743, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('stinct,sting,stig,sti，stimul', '扎，刺', 'prick', 24, 744, NULL, NULL);
@@ -1228,7 +1228,7 @@ INSERT INTO `wordroot` VALUES ('mut', '改变', 'change', 24, 784, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('vuln,vult', '伤害', NULL, NULL, 785, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('pugn', '战斗', 'fight', 24, 786, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('avi,av,avar', '欲望', 'desire', 26, 787, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('anim', '生命，活，心神，意见', 'life,spirit', 26, 788, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('anim', '生命；精神；心神', 'life, spirit, soul', 26, 788, 'None', '1.animal(anim 生命；精神；心神 + al 表名词 → 有生命的东西 → 动物)');
 INSERT INTO `wordroot` VALUES ('firm', '强壮的，坚定的', 'firm', 25, 789, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('calc', '石头', 'stone', 15, 790, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('surg,surge,srect,surrect', '升起，复活', 'rise', 24, 791, NULL, NULL);
@@ -1251,11 +1251,11 @@ INSERT INTO `wordroot` VALUES ('phras,pha,phe,phu', '说', NULL, NULL, 808, NULL
 INSERT INTO `wordroot` VALUES ('jur,juris', '咒骂，发誓', 'swear', 24, 809, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('vad,vas,wad', '走，去', 'go', 24, 810, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('mea,me', '浸透', NULL, NULL, 811, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('ann,enn', '年', 'year', 26, 812, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('ann,annu,enn', '年, 一年', 'year, one year', 26, 812, 'None', '1.annals(ann 年，一年 + al 表人或物 + s → 一年年的人和事物 → 编年史)\n2.anniversary(anni〔= ann〕年，一年 + vers 转 + ary 物 → 一年转到一次 → 周年纪念)\n3.annual(annu 年，一年 + al …的 → 一年一度的)\n4.perennial(per 自始至终 + enn 年，一年 + ial 具有…的，属于…的 → 一年到头 → 终年的)');
 INSERT INTO `wordroot` VALUES ('funct', '履行', 'perform', 24, 813, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('mat', '熟的', NULL, NULL, 814, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('cau,cur', '小心，注意', NULL, NULL, 815, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('ambul', '走，步行', 'walk', 24, 816, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('ambul,ambl', '行走, 走路', 'to walk', 24, 816, 'None', '1.ambulance(ambul 行走，走路 + ance 表状态 → 行走在路上〔治病救人〕→ 救护车)\n2.amble(ambl 行走，走路 + e -> 漫步，徐行)');
 INSERT INTO `wordroot` VALUES ('domin', '支配', 'lord', 24, 817, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('text', '编织', 'weave', 24, 819, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('med', '治愈，打算', NULL, NULL, 820, NULL, NULL);
@@ -1376,11 +1376,11 @@ INSERT INTO `wordroot` VALUES ('acerb', '苦的，严厉的', NULL, 25, 935, NUL
 INSERT INTO `wordroot` VALUES ('bil', '强壮的', NULL, NULL, 936, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('fusc', '黑暗的', 'dark', 23, 937, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('just,juris', '法律，正义', NULL, NULL, 938, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('acro', '顶，顶部', 'top', 26, 939, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('acro', '顶点, 高点', 'top', 26, 939, 'None', '1.acrobat(acro 顶点，高点 + bat 打 → 在高处表演打斗 → 杂技演员)');
 INSERT INTO `wordroot` VALUES ('aster,astro', '星星', 'star', 15, 940, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('path', '感觉、痛苦、疾病', 'felling,suffering,illness', 26, 941, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('clandestin', '秘密', 'secret', 26, 1117, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('alter,altern,ali', '改变', 'to change', 24, 943, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('al', '其他的', 'other', 25, 943, 'None', '1.alias(al 其他的；改变状态 + ias → 另外的名字）→ 化名)');
 INSERT INTO `wordroot` VALUES ('vary', '转变，变化', NULL, NULL, 944, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('lig', '捆绑', 'bind', 24, 945, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('the', '看', NULL, NULL, 946, NULL, NULL);
@@ -1433,22 +1433,22 @@ INSERT INTO `wordroot` VALUES ('sper', '希望', 'hope', 24, 994, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('stell', '星', 'star', 15, 995, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('us, ut, util', '用', 'to use', 24, 996, 'None', '1.usage(us 用 + age 表总称 → 用法；惯例)\n2.utensil(ut 用 + ensil 表物品 → 用的物品 → 用具)\n3.utility(util 用 + ity 具备某种性质，状况 → 公用事业；有用)');
 INSERT INTO `wordroot` VALUES ('val', '强', NULL, NULL, 997, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('abl,abili', '能够的', 'able', 25, 999, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('abl,abili', '能', 'able', 25, 999, 'None', '1.able(abl 能 + e → 能够的)\n2.ability(abil 能 + ity 具备某种性质，状况 → 能力)');
 INSERT INTO `wordroot` VALUES ('abol', '消除，终止', 'do away with', 24, 1000, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('accoutr', '衣服，连衣裙', 'dress', 18, 1001, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('acm', '顶，顶部', 'top', 26, 1002, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('act', '做，驱动', 'to do,to drive', 24, 1003, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('act', '做；驱使', 'to do,to drive', 24, 1003, 'None', '1.activity(act 做；驱使 + ivity 表状态 → 活动)');
 INSERT INTO `wordroot` VALUES ('adip', '肥胖的', 'fat', 25, 1004, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('adjut', '帮助', 'assist', 24, 1005, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('agger', '堆', 'heap', 26, 1007, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('agon', '奋斗', 'struggle', 24, 1008, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('alacr', '敏捷的', 'swift', 25, 1009, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('alb', '白色的', 'white', 25, 1010, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('alb', '白色', 'white', 23, 1010, 'None', '1.album(alb 白色 + um → 空白的东西 → 用来放东西的册子 → 相册)');
 INSERT INTO `wordroot` VALUES ('ald', '老的', 'old', 25, 1011, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('amen', '令人愉快的', 'pleasant', 25, 1012, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('amic', '朋友', 'friend', 17, 1013, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ampl', '大的，大量的', 'large', 25, 1014, NULL, NULL);
-INSERT INTO `wordroot` VALUES ('anci,antiq', '老的，以前的', 'old', 25, 1015, NULL, NULL);
+INSERT INTO `wordroot` VALUES ('anci,antiq', '古老', 'old', 25, 1015, 'None', '1.ancient(anci 古老 + ent 具有…性质的，关于…的 → 古代的)\n2.antiquated(antiqu〔e〕古代的 + at〔e〕具有…的，有…性质的 + ed 表形容词 → 陈旧的)');
 INSERT INTO `wordroot` VALUES ('angu', '忧虑，困苦', 'distress', 26, 1016, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('anx', '忧虑，困苦', 'distress', 26, 1017, NULL, NULL);
 INSERT INTO `wordroot` VALUES ('ap', '蜜蜂', 'bee', 16, 1018, NULL, NULL);

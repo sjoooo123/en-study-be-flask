@@ -19,4 +19,4 @@ DEBUG = True  # 开发
 # 微信云内网
 username = os.environ.get("MYSQL_USERNAME", 'root')
 password = os.environ.get("MYSQL_PASSWORD", 'SJ1964swwhj')
-db_address = os.environ.get("MYSQL_ADDRESS", '10.0.224.4:3306')
+db_address = os.environ.get("MYSQL_ADDRESS", '10.0.224.7:3306')
